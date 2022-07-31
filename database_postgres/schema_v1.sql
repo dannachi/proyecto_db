@@ -1,6 +1,6 @@
 -- Database: mande_db
 
--- DROP DATABASE mande_db;
+DROP DATABASE mande_db;
 
 CREATE DATABASE mande_db
     WITH 
@@ -14,9 +14,29 @@ CREATE DATABASE mande_db
 
 \c mande_db
 
-CREATE TABLE usuario(
-	id_usuario SERIAL PRIMARY KEY,
-	nombre_usuario VARCHAR(60) UNIQUE,
-	password VARCHAR(60) CHECK (length(password) > 3),
-	premium BOOLEAN DEFAULT FALSE
+DROP TABLE IF EXIST ptype CASCADE;
+DROP TABLE IF EXIST pet CASCADE;
+DROP TABLE IF EXIST toy CASCADE;
+
+
+CREATE TABLE ptype(
+	tyid SERIAL PRIMARY KEY,
+	ttype VARCHAR(60) UNIQUE,
+	breed VARCHAR(60) not null,
+	type_escription VARCHAR(60) NOT NULL
 );
+
+CREATE TABLE pet(
+	pid SERIAL PRIMARY KEY,
+	pet_name VARCHAR(60) UNIQUE,
+	age INT not null,
+	tyid FOREGIN KEY ptype(tyid)
+);
+
+CREATE TABLE toy(
+	tid SERIAL PRIMARY KEY,
+	tname VARCHAR(60) UNIQUE,
+	color VARCHAR(60) not null,
+	pet_id FOREGIN KEY pet(pid)
+
+}
