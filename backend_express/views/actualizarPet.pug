@@ -1,0 +1,48 @@
+head
+  meta(charset='utf-8')
+  title MASCOTAS
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+  body
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | ACTUALIZAR MASCOTA
+          // Modal Body
+          .modal-body
+            table
+              tr
+                th ID
+                th Nombre
+                th Edad
+                th Animal
+                th Raza
+                th Descripcion
+              each val in rows 
+                tr
+                  td= val.pid
+                  td= val.pet_name
+                  td= val.age
+                  td= val.ttype
+                  td= val.breed 
+                  td= val.type_description
+          form(role='form' method='POST' action='http://localhost:3000/pet/actualizar')
+              div.form-group
+                label(for='pet_name') ID Mascota:
+                input#name.form-control(type='number', placeholder='0' name='pid')
+              div.form-group
+                label(for='pet_name') Nombre:
+                input#name.form-control(type='text', placeholder='Lupita' name='pet_name')
+              div.form-group
+                label(for='age') Edad:
+                input#name.form-control(type='number', placeholder='0' name='age')
+              div.form-group
+                label(for='tyid') Id Raza:
+                input#name.form-control(type='number', placeholder='0' name='tyid')
+              button.btn.btn-primary(type="submit", name="submit") ACTUALIZAR
+          // Modal Footer
+          .modal-footer

@@ -1,0 +1,45 @@
+head
+  meta(charset='utf-8')
+  title ACTUALIZAR JUGUETES
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+  body
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | ACTUALIZAR JUGUETE
+          // Modal Body
+          .modal-body
+            table
+              tr
+                th ID
+                th Juguete
+                th Color
+                th Mascota
+              each val in rows 
+                tr
+                  td= val.tid
+                  td= val.tname
+                  td= val.color
+                  td= val.pet_name
+            form(role='form' method='POST' action='http://localhost:3000/toy/actualizar')
+              div.form-group
+                label(for='tid') ID Juguete:
+                input#name.form-control(type='number', placeholder='1' name='tid')
+              div.form-group
+                label(for='pet_name') Nombre Juguete:
+                input#name.form-control(type='text', placeholder='Rascador' name='tname')
+              div.form-group
+                label(for='color') Color:
+                input#name.form-control(type='text', placeholder='Negro' name='color')
+              div.form-group
+                label(for='pet_id') ID Mascota:
+                input#name.form-control(type='number', placeholder='1' name='pet_id')
+              button.btn.btn-primary(type="submit", name="submit") ACTUALIZAR
+            
+          // Modal Footer
+          .modal-footer

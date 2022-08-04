@@ -11,6 +11,10 @@ const crearRouter = require('./routes/crear');
 const queryRouter = require('./routes/query');
 const usuarioRouter = require('./routes/usuario');
 
+const pet = require('./routes/pet');
+const toy = require('./routes/toy');
+const ptype = require('./routes/ptype');
+
 const app = express();
 
 // view engine setup
@@ -30,6 +34,9 @@ app.use('/crear', crearRouter);
 app.use('/ejecutar_query', queryRouter);
 app.use('/usuario', usuarioRouter);
 
+app.use('/pet', pet);
+app.use('/toy', toy);
+app.use('/ptype', ptype);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

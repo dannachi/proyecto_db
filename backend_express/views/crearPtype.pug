@@ -1,0 +1,30 @@
+head
+  meta(charset='utf-8')
+  title CREAR RAZA
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+  body
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | CREAR RAZA
+          // Modal Body
+          .modal-body
+            form(role='form' method='POST' action='http://localhost:3000/ptype/crear')
+              div.form-group
+                label(for='pet_name') Animal:
+                input#name.form-control(type='text', placeholder='Gato' name='ttype')
+              div.form-group
+                label(for='age') Raza:
+                input#name.form-control(type='text', placeholder='Persa' name='breed')
+              div.form-group
+                label(for='age') Descripcion:
+                input#name.form-control(type='text', placeholder='Felino de las tierras Persas' name='type_description')
+              button.btn.btn-primary(type="submit", name="submit") Create
+          // Modal Footer
+          .modal-footer
+            h4 footer

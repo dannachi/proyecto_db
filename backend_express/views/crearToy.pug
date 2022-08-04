@@ -1,0 +1,44 @@
+head
+  meta(charset='utf-8')
+  title CREAR JUGUETE
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+  body
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | CREAR JUGUETE
+          // Modal Body
+          .modal-body
+            form(role='form' method='POST' action='http://localhost:3000/toy/crear')
+              div.form-group
+                label(for='pet_name') Nombre Juguete:
+                input#name.form-control(type='text', placeholder='Rascador' name='tname')
+              div.form-group
+                label(for='age') Color:
+                input#name.form-control(type='text', placeholder='Negro' name='color')
+              table
+                tr
+                  th ID
+                  th Nombre
+                  th Edad
+                  th Animal 
+                  th Raza
+                each val in rows 
+                  tr
+                    td= val.pid
+                    td= val.pet_name
+                    td= val.age
+                    td= val.ttype 
+                    td= val.breed
+              div.form-group
+                label(for='age') ID Mascota:
+                input#name.form-control(type='text', placeholder='0' name='pet_id')
+              button.btn.btn-primary(type="submit", name="submit") Create
+          // Modal Footer
+          .modal-footer
+            h4 footer

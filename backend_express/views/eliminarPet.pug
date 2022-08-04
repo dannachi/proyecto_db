@@ -1,0 +1,39 @@
+head
+  meta(charset='utf-8')
+  title MASCOTAS
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+  body
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | ELIMINAR MASCOTA
+          // Modal Body
+          .modal-body
+            table
+              tr
+                th ID
+                th Nombre
+                th Edad
+                th Animal
+                th Raza
+                th Descripcion
+              each val in rows 
+                tr
+                  td= val.pid
+                  td= val.pet_name
+                  td= val.age
+                  td= val.ttype
+                  td= val.breed 
+                  td= val.type_description
+            form(role='form' method='POST' action='http://localhost:3000/pet/eliminar')
+              div.form-group
+                label(for='tyid') Ingrese ID de la Mascota a eliminar:
+                input#name.form-control(type='number', name='pid')
+              button.btn.btn-primary(type="submit", name="submit") Eliminar
+          // Modal Footer
+          .modal-footer

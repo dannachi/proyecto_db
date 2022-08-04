@@ -1,0 +1,35 @@
+head
+  meta(charset='utf-8')
+  title ELIMINAR JUGUETE
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css')
+  body
+    .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            button.close(type="button", data-dismiss="modal")
+              span(aria-hidden="true") ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | ELIMINAR JUGUETE
+          // Modal Body
+          .modal-body
+            table
+              tr
+                th ID
+                th Juguete
+                th Color
+                th Mascota
+              each val in rows 
+                tr
+                  td= val.tid
+                  td= val.tname
+                  td= val.color
+                  td= val.pet_name
+            form(role='form' method='POST' action='http://localhost:3000/toy/eliminar')
+              div.form-group
+                label(for='tid') Ingrese ID del juguete a eliminar:
+                input#name.form-control(type='number', name='tid')
+              button.btn.btn-primary(type="submit", name="submit") ELIMINAR
+          // Modal Footer
+          .modal-footer

@@ -1,6 +1,6 @@
 const config = {
   "user": "postgres", //env var: PGUSER
-  "database": "mande_db", //env var: PGDATABASE
+  "database": "laika_db", //env var: PGDATABASE
   "password": "mysecretpassword", //env var: PGPASSWORD
   "host": "postgres", // Server hosting the postgres database
   "port": 5432, //env var: PGPORT
